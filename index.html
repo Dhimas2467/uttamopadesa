@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Uttamopadesa | Kawruh dan Laku Kehidupan</title>
-<meta name="description" content="Dokumentasi Kawruh Uttamopadesa, landasan pemikiran, kawruh sejati, dan laku kehidupan yang dirumuskan oleh Dhimas Purnomo.">
+
+<meta name="description" content="Uttamopadesa | Uttamopadesa Blog | Kawruh Sejati | Kawruh Urip Sejati | Kawruh Kasunyatan | Laku Kehidupan.">
+
 <meta name="theme-color" content="#244b3c">
 
 <style>
@@ -13,7 +15,7 @@
   --hijau: #244b3c;
   --hijau-terang: #285343;
   --krem: #f8f7f1;
-  --krem-kartu: #f0eee4;
+  --kartu: #f0eee4;
   --teks: #354252;
   --emas: #b58b35;
 }
@@ -35,7 +37,7 @@ body {
 }
 
 header {
-  padding: 30px 20px 32px;
+  padding: 28px 16px;
   text-align: center;
   color: white;
   background: var(--hijau);
@@ -43,7 +45,7 @@ header {
 
 .simbol-utama {
   display: block;
-  width: min(68%, 250px);
+  width: min(65%, 230px);
   height: auto;
   margin: 0 auto 12px;
   object-fit: contain;
@@ -52,28 +54,28 @@ header {
 header h1 {
   margin: 8px 0 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 6vw, 44px);
-  line-height: 1.25;
+  font-size: clamp(28px, 6vw, 42px);
+  line-height: 1.3;
   letter-spacing: 1px;
 }
 
 header p {
-  margin: 8px 0 0;
-  font-size: clamp(16px, 3.5vw, 23px);
+  margin: 5px 0 0;
+  font-size: 18px;
 }
 
 nav {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 18px 12px;
-  background: #f0efe8;
+  justify-content: center;
+  gap: 9px;
+  padding: 16px 10px;
+  background: #eeede5;
 }
 
 nav a {
   display: inline-block;
-  padding: 7px 13px;
+  padding: 7px 12px;
   border: 1px solid var(--hijau);
   border-radius: 7px;
   background: var(--hijau);
@@ -81,12 +83,10 @@ nav a {
   font-size: 13px;
   font-weight: bold;
   text-decoration: none;
-  text-align: center;
-  transition: background 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus {
+nav a.terpilih {
   background: var(--emas);
   border-color: var(--emas);
   color: white;
@@ -94,23 +94,17 @@ nav a:focus {
 
 main {
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 24px 20px 50px;
-}
-
-section {
-  margin: 0 0 28px;
-  padding: 18px 0;
-  scroll-margin-top: 16px;
+  padding: 25px 20px 30px;
 }
 
 h2 {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   color: var(--hijau);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(25px, 5vw, 34px);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 p {
@@ -119,70 +113,91 @@ p {
 
 .pemisah {
   height: 1px;
-  margin: 12px 0 25px;
+  margin: 24px 0;
   border: 0;
   background: #dedbd0;
 }
 
+/* Hanya halaman yang dipilih yang terlihat */
+.halaman {
+  display: none;
+}
+
+.halaman.aktif {
+  display: block;
+}
+
+/* Kartu artikel */
 .kartu-artikel {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding: 22px;
+  gap: 20px;
+  padding: 20px;
   border-radius: 12px;
-  background: var(--krem-kartu);
+  background: var(--kartu);
 }
 
 .gambar-artikel {
-  display: block;
-  flex: 0 0 145px;
-  width: 145px;
-  height: 175px;
-  border-radius: 9px;
-  object-fit: cover;
-  background: #e2e5d9;
-}
-
-.isi-artikel {
-  min-width: 0;
+  flex: 0 0 130px;
+  width: 130px;
+  height: 155px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .judul-artikel {
   display: inline-block;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
   color: var(--hijau);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: bold;
   line-height: 1.4;
   text-decoration: none;
 }
 
-.judul-artikel:hover {
-  color: var(--emas);
-}
-
-.isi-artikel p {
-  margin: 0 0 10px;
-}
-
-.tautan-baca {
+.tautan {
   color: var(--hijau);
   font-weight: bold;
   text-decoration: none;
 }
 
-.tautan-baca:hover {
+.tautan:hover,
+.judul-artikel:hover {
   color: var(--emas);
   text-decoration: underline;
 }
 
+/* Tautan blog selalu terlihat di atas footer */
+.tautan-blog {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px 15px 25px;
+  text-align: center;
+  border-top: 1px solid #dedbd0;
+}
+
+.tautan-blog a {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--hijau);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tautan-blog a:hover {
+  background: var(--emas);
+}
+
+/* Footer */
 footer {
-  padding: 20px 15px;
+  padding: 18px 12px;
   color: white;
   background: var(--hijau);
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 footer p {
@@ -191,16 +206,20 @@ footer p {
 
 @media (max-width: 560px) {
   header {
-    padding: 25px 15px 27px;
+    padding: 24px 12px;
   }
 
   .simbol-utama {
-    width: min(65%, 210px);
+    width: min(65%, 205px);
+  }
+
+  header p {
+    font-size: 16px;
   }
 
   nav {
-    gap: 8px;
-    padding: 15px 8px;
+    gap: 7px;
+    padding: 14px 6px;
   }
 
   nav a {
@@ -209,29 +228,24 @@ footer p {
   }
 
   main {
-    padding: 18px 18px 35px;
-  }
-
-  section {
-    padding: 12px 0;
-    margin-bottom: 22px;
+    padding: 22px 17px 25px;
   }
 
   .kartu-artikel {
     flex-direction: column;
     align-items: stretch;
-    gap: 15px;
-    padding: 17px;
+    gap: 12px;
+    padding: 16px;
   }
 
   .gambar-artikel {
     width: 100%;
-    height: 180px;
+    height: 145px;
     flex-basis: auto;
   }
 
   .judul-artikel {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
 </style>
@@ -245,40 +259,41 @@ footer p {
     alt="Simbol resmi Uttamopadesa"
     class="simbol-utama"
   >
+
   <h1>UTTAMOPADESA</h1>
   <p>Kawruh dan Laku Kehidupan</p>
 </header>
 
-<nav aria-label="Navigasi utama">
-  <a href="#identitas">Identitas</a>
-  <a href="#landasan">Landasan</a>
-  <a href="#dokumentasi">Dokumentasi</a>
+<nav aria-label="Menu utama">
+  <a href="#identitas" data-halaman="identitas">Identitas</a>
+  <a href="#landasan" data-halaman="landasan">Landasan</a>
+  <a href="#dokumentasi" data-halaman="dokumentasi">Dokumentasi</a>
 </nav>
 
 <main>
 
-  <section id="beranda">
+  <!-- BERANDA -->
+  <section id="beranda" class="halaman aktif">
     <h2>Selamat Datang</h2>
+
     <p>
       Selamat datang di laman dokumentasi Kawruh Uttamopadesa,
-      sebuah kawruh yang mengarahkan manusia untuk memahami
-      hakikat kehidupan dan menerapkannya dalam laku sehari-hari.
+      sebuah kawruh yang mengarahkan manusia untuk memahami hakikat
+      kehidupan dan menerapkannya dalam laku sehari-hari.
     </p>
-  </section>
 
-  <hr class="pemisah">
+    <hr class="pemisah">
 
-  <section id="artikel-terbaru">
     <h2>Artikel Terbaru</h2>
 
     <article class="kartu-artikel">
       <img
         src="simbol-uttamopadesa.png"
-        alt="Simbol Kawruh Uttamopadesa"
+        alt="Simbol Uttamopadesa"
         class="gambar-artikel"
       >
 
-      <div class="isi-artikel">
+      <div>
         <a href="pedoman-dasar.html" class="judul-artikel">
           Pedoman Dasar Kawruh Uttamopadesa
         </a>
@@ -288,68 +303,120 @@ footer p {
           kehidupan dalam Kawruh Uttamopadesa.
         </p>
 
-        <a href="pedoman-dasar.html" class="tautan-baca">
+        <a href="pedoman-dasar.html" class="tautan">
           Baca selengkapnya →
         </a>
       </div>
     </article>
   </section>
 
-  <hr class="pemisah">
-
-  <section id="identitas">
+  <!-- HALAMAN IDENTITAS -->
+  <section id="identitas" class="halaman">
     <h2>Identitas Uttamopadesa</h2>
+
     <p>
       Kawruh Uttamopadesa dirumuskan oleh Dhimas Purnomo sebagai
       penjabaran Kawruh Sejati dalam pemahaman dan laku kehidupan manusia.
     </p>
+
     <p>
       Kawruh Uttamopadesa menekankan pemurnian cipta, ketulusan rasa,
       dan keutamaan karsa dalam menjalani kehidupan.
     </p>
   </section>
 
-  <hr class="pemisah">
-
-  <section id="landasan">
+  <!-- HALAMAN LANDASAN -->
+  <section id="landasan" class="halaman">
     <h2>Landasan Pemikiran</h2>
+
     <p>
       Kawruh Uttamopadesa berlandaskan pemahaman mengenai hakikat
       kehidupan, kesadaran diri, budi pekerti, dan tanggung jawab
       manusia dalam menjalani kehidupan.
     </p>
+
     <p>
       Pemahaman tidak berhenti pada pengetahuan, tetapi diwujudkan
       dalam laku nyata.
     </p>
   </section>
 
-  <hr class="pemisah">
-
-  <section id="dokumentasi">
+  <!-- HALAMAN DOKUMENTASI -->
+  <section id="dokumentasi" class="halaman">
     <h2>Dokumentasi</h2>
+
     <p>
-      Dokumentasi ini memuat tulisan dan pedoman untuk memahami
+      Laman ini memuat dokumentasi dan tulisan mengenai
       Kawruh Uttamopadesa.
     </p>
+
     <p>
-      <a href="pedoman-dasar.html" class="tautan-baca">
+      <a href="pedoman-dasar.html" class="tautan">
         Pedoman Dasar Kawruh Uttamopadesa →
-      </a>
-    </p>
-    <p>
-      <a href="https://uttamopadesa.blogspot.com/" class="tautan-baca"
-         target="_blank" rel="noopener noreferrer">
-        Kunjungi Blog Uttamopadesa →
       </a>
     </p>
   </section>
 
 </main>
 
+<!-- TAUTAN BLOG SELALU DI ATAS FOOTER -->
+<div class="tautan-blog">
+  <a
+    href="https://uttamopadesa.blogspot.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    ↗ Kunjungi Blog Uttamopadesa
+  </a>
+</div>
+
 <footer>
   <p>Template by Dhimas</p>
 </footer>
+
+<script>
+function tampilkanHalaman(nama) {
+  document.querySelectorAll('.halaman').forEach(function(halaman) {
+    halaman.classList.remove('aktif');
+  });
+
+  document.querySelectorAll('nav a').forEach(function(menu) {
+    menu.classList.remove('terpilih');
+  });
+
+  var halamanTujuan = document.getElementById(nama);
+
+  if (halamanTujuan) {
+    halamanTujuan.classList.add('aktif');
+  }
+
+  var menuAktif = document.querySelector(
+    'nav a[data-halaman="' + nama + '"]'
+  );
+
+  if (menuAktif) {
+    menuAktif.classList.add('terpilih');
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('nav a[data-halaman]').forEach(function(menu) {
+  menu.addEventListener('click', function(event) {
+    event.preventDefault();
+    tampilkanHalaman(menu.dataset.halaman);
+    history.replaceState(null, '', '#' + menu.dataset.halaman);
+  });
+});
+
+window.addEventListener('load', function() {
+  var nama = window.location.hash.replace('#', '');
+
+  if (['identitas', 'landasan', 'dokumentasi'].includes(nama)) {
+    tampilkanHalaman(nama);
+  }
+});
+</script>
 
 </body>
 </html>
