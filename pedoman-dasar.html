@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Pedoman Dasar Kawruh Uttamopadesa, landasan pemahaman tentang Kawruh Sejati, cipta, rasa, karsa, dan laku kehidupan.">
+<link rel="canonical" href="https://dhimas2467.github.io/uttamopadesa/pedoman-dasar.html">
 <title>Pedoman Dasar Kawruh Uttamopadesa</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   max-width: 850px;
@@ -21,11 +25,53 @@ header {
   color: white;
   text-align: center;
   padding: 22px;
+  border-radius: 10px;
+}
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+.brand {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.tagline {
+  margin: 4px 0 0;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+nav a {
+  display: inline-block;
+  padding: 8px 13px;
+  border-radius: 22px;
+  background: #e6eee8;
+  color: #244b3c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+nav a:hover,
+nav a:focus {
+  background: #d1e0d5;
 }
 article {
   background: white;
   padding: 22px;
   margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(36, 75, 60, 0.08);
+}
+article p,
+article li {
+  text-align: justify;
+  text-justify: inter-word;
 }
 .article-image {
   display: block;
@@ -44,7 +90,11 @@ a {
 footer {
   text-align: center;
   margin-top: 30px;
+  padding: 10px;
   font-size: 14px;
+}
+footer p {
+  margin: 6px 0;
 }
 @media (max-width: 600px) {
   body {
@@ -53,6 +103,9 @@ footer {
   article {
     padding: 16px;
   }
+  nav a {
+    padding: 8px 11px;
+  }
 }
 </style>
 </head>
@@ -60,9 +113,18 @@ footer {
 <body>
 
 <header>
-<h1>UTTAMOPADESA</h1>
-<p>Kawruh dan Laku Kehidupan</p>
+<a href="index.html">
+<p class="brand">UTTAMOPADESA</p>
+<p class="tagline">Kawruh dan Laku Kehidupan</p>
+</a>
 </header>
+
+<nav aria-label="Navigasi utama">
+<a href="index.html">⌂ Beranda</a>
+<a href="index.html#identitas">Identitas</a>
+<a href="index.html#landasan">Landasan</a>
+<a href="index.html#dokumentasi">Dokumentasi</a>
+</nav>
 
 <article>
 
@@ -122,7 +184,7 @@ footer {
 
 <footer>
 <p>Dokumentasi Kawruh Uttamopadesa</p>
-<p>Dirumuskan oleh Dhimas Purnomo</p>
+<p>Dirumuskan oleh Dhimas Purnomo, SH</p>
 <p><a href="index.html">Kembali ke Beranda Website</a></p>
 <p><a href="https://uttamopadesa.blogspot.com/">Kunjungi Blog Uttamopadesa</a></p>
 </footer>
