@@ -23,7 +23,7 @@ window.DAFTAR_ARTIKEL = [
   {
     judul: "Pedoman Dasar Kawruh Uttamopadesa",
     url: "pedoman-dasar.html",
-    gambar: "simbol-uttamopadesa.png",
+    gambar: "pedoman-dasar.jpg",
     alt: "Simbol Uttamopadesa",
     ringkasan: "Landasan dasar pemikiran dan pedoman kehidupan dalam Kawruh Uttamopadesa."
   }
