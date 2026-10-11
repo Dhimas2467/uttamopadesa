@@ -1,4 +1,11 @@
 window.DAFTAR_ARTIKEL = [
+{
+judul: "Nawa Sembah Uttamopadesa",
+url: "nawa-sembah-uttamopadesa.html",
+gambar: "nawa-sembah.jpg",
+alt: "Ilustrasi Nawa Sembah",
+ringkasan: "Nawa Sembah Uttamopadesa adalah sembilan tataran pangabekti ciptaan Dhimas Purnomo dalam kerangka Kawruh Uttamopadesa."
+},
   {
 judul: "Kawruh Uttamopadesa sebagai Dasar Kesadaran",
 url: "kawruh-uttamopadesa-sebagai-dasar-kesadaran.html",
