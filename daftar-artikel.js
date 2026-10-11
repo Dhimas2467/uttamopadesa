@@ -1,5 +1,12 @@
 window.DAFTAR_ARTIKEL = [
   {
+    judul: "Kajian Filsafat Uttamopadesa",
+    url: "filsafat-uttamopadesa.html",
+    gambar: "filsafat-uttamopadesa.jpg",
+    alt: "Kajian Filsafat Uttamopadesa",
+    ringkasan: "Kajian ontologis, epistemologis, dan aksiologis sebagai landasan memahami hakikat kehidupan, kawruh, dan laku manusia."
+  },
+  {
     judul: "Kawruh Sejati dalam Kehidupan",
     url: "kawruh-sejati-dalam-kehidupan.html",
     gambar: "kawruh-sejati.jpg",
