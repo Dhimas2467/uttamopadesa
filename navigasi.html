@@ -1,0 +1,110 @@
+<style>
+:root {
+  --hijau: #244b3c;
+  --emas: #b58b35;
+}
+
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 8px;
+  background: #eeede5;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 7px 11px;
+  border: 1px solid var(--hijau);
+  border-radius: 7px;
+  background: var(--hijau);
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav a:hover,
+nav a.terpilih {
+  background: var(--emas);
+  border-color: var(--emas);
+  color: white;
+}
+
+nav a.tombol-beranda {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+nav a.tombol-beranda svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: white;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 560px) {
+  nav {
+    gap: 5px;
+    padding: 12px 5px;
+  }
+
+  nav a {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  nav a.tombol-beranda {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  nav {
+    gap: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  nav a {
+    padding: 7px 6px;
+    font-size: 10px;
+  }
+
+  nav a.tombol-beranda {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>
+
+<nav aria-label="Menu utama">
+  <a href="index.html#beranda"
+     class="tombol-beranda"
+     aria-label="Beranda"
+     title="Beranda">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 10.5 12 3l9 7.5"></path>
+      <path d="M5.5 9.5V21h13V9.5"></path>
+      <path d="M9.5 21v-7h5v7"></path>
+    </svg>
+  </a>
+  <a href="index.html#identitas">Identitas</a>
+  <a href="index.html#landasan">Landasan</a>
+  <a href="index.html#dokumentasi">Dokumentasi</a>
+</nav>
