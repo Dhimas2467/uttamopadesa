@@ -62,33 +62,6 @@
       opacity:.9;
     }
 
-    nav {
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      padding:14px 12px;
-      background:#f0f2e9;
-      border-bottom:1px solid var(--garis);
-      font-family:Arial,sans-serif;
-    }
-
-    nav a {
-      display:inline-block;
-      color:var(--hijau);
-      text-decoration:none;
-      font-weight:700;
-      border:1px solid #cbd8ca;
-      border-radius:24px;
-      padding:7px 14px;
-      font-size:.92rem;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background:var(--hijau-muda);
-    }
-
     main {
       max-width:900px;
       width:calc(100% - 32px);
@@ -198,15 +171,6 @@
       .isi-artikel p {
         line-height:1.8;
       }
-
-      nav {
-        gap:7px;
-      }
-
-      nav a {
-        padding:7px 11px;
-        font-size:.85rem;
-      }
     }
   </style>
 </head>
@@ -220,11 +184,8 @@
     </a>
   </header>
 
-  <nav aria-label="Navigasi utama">
-    <a href="index.html">⌂ Beranda</a>
-    <a href="index.html#identitas">Identitas</a>
-    <a href="index.html#dokumentasi">Dokumentasi</a>
-  </nav>
+  <div id="navigasi-container"></div>
+<script src="navigasi.js"></script>
 
   <main>
     <article class="isi-artikel">
