@@ -1,10 +1,5 @@
 <style>
-:root {
-  --hijau: #244b3c;
-  --emas: #b58b35;
-}
-
-nav {
+.menu-utama {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -14,15 +9,15 @@ nav {
   background: #eeede5;
 }
 
-nav a {
+.menu-utama a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 0;
   padding: 7px 11px;
-  border: 1px solid var(--hijau);
+  border: 1px solid #244b3c;
   border-radius: 7px;
-  background: var(--hijau);
+  background: #244b3c;
   color: white;
   font-size: 13px;
   font-weight: bold;
@@ -30,21 +25,21 @@ nav a {
   white-space: nowrap;
 }
 
-nav a:hover,
-nav a.terpilih {
-  background: var(--emas);
-  border-color: var(--emas);
+.menu-utama a:hover,
+.menu-utama a.terpilih {
+  background: #b58b35;
+  border-color: #b58b35;
   color: white;
 }
 
-nav a.tombol-beranda {
+.menu-utama a.tombol-beranda {
   flex: 0 0 32px;
   width: 32px;
   height: 32px;
   padding: 0;
 }
 
-nav a.tombol-beranda svg {
+.menu-utama a.tombol-beranda svg {
   display: block;
   width: 17px;
   height: 17px;
@@ -56,17 +51,17 @@ nav a.tombol-beranda svg {
 }
 
 @media (max-width: 560px) {
-  nav {
+  .menu-utama {
     gap: 5px;
     padding: 12px 5px;
   }
 
-  nav a {
+  .menu-utama a {
     padding: 7px 8px;
     font-size: 11px;
   }
 
-  nav a.tombol-beranda {
+  .menu-utama a.tombol-beranda {
     flex-basis: 30px;
     width: 30px;
     height: 30px;
@@ -74,18 +69,18 @@ nav a.tombol-beranda svg {
 }
 
 @media (max-width: 360px) {
-  nav {
+  .menu-utama {
     gap: 4px;
     padding-left: 4px;
     padding-right: 4px;
   }
 
-  nav a {
+  .menu-utama a {
     padding: 7px 6px;
     font-size: 10px;
   }
 
-  nav a.tombol-beranda {
+  .menu-utama a.tombol-beranda {
     flex-basis: 28px;
     width: 28px;
     height: 28px;
@@ -93,7 +88,7 @@ nav a.tombol-beranda svg {
 }
 </style>
 
-<nav aria-label="Menu utama">
+<nav class="menu-utama" aria-label="Menu utama">
   <a href="index.html#beranda"
      class="tombol-beranda"
      aria-label="Beranda"
