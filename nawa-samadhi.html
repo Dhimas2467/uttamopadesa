@@ -45,27 +45,7 @@
       font-size: .92rem;
       opacity: .9;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 14px 12px;
-      background: #f0f2e9;
-      border-bottom: 1px solid var(--garis);
-      font-family: Arial, sans-serif;
-    }
-    nav a, .back-link {
-      display: inline-block;
-      color: var(--hijau);
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid #cbd8ca;
-      border-radius: 24px;
-      padding: 7px 14px;
-      font-size: .92rem;
-    }
-    nav a:hover, .back-link:hover { background: var(--hijau-muda); }
+    
     main {
       max-width: 900px;
       width: calc(100% - 32px);
@@ -138,20 +118,11 @@
     }
     .tautan-terkait p { text-align: left; }
     .tautan-terkait a { color: var(--hijau); }
-    footer {
-      text-align: center;
-      padding: 24px 16px 30px;
-      color: var(--redup);
-      font-family: Arial, sans-serif;
-      font-size: .9rem;
-    }
-    footer a { color: var(--hijau); }
+    
     @media (max-width: 520px) {
       main { width: calc(100% - 20px); margin: 14px auto; padding: 20px 17px; border-radius: 12px; }
       .isi-artikel p { line-height: 1.8; }
-      nav { gap: 7px; }
-      nav a { padding: 7px 11px; font-size: .85rem; }
-    }
+      
   </style>
 </head>
 <body>
@@ -161,12 +132,8 @@
       <p class="tagline">Kawruh dan Laku Kehidupan</p>
     </a>
   </header>
-  <nav aria-label="Navigasi utama">
-<a href="index.html">⌂ Beranda</a>
-<a href="index.html#identitas">Identitas</a>
-<a href="index.html#dokumentasi">Dokumentasi</a>
-</nav>
-
+  <div id="navigasi-container"></div>
+<script src="navigasi.js"></script>
   <main>
     <article class="isi-artikel">
       <h1>NAWA SAMADHI UTTAMOPADESA</h1>
