@@ -1,5 +1,12 @@
 window.DAFTAR_ARTIKEL = [
   {
+judul: "Kawruh Uttamopadesa sebagai Dasar Kesadaran",
+url: "kawruh-uttamopadesa-sebagai-dasar-kesadaran.html",
+gambar: "dasar-kesadaran.jpg",
+alt: "Ilustrasi Dasar Kesadaran",
+ringkasan: "Kesadaran merupakan bagian penting dalam kehidupan manusia karena melalui kesadaran manusia dapat mengenali dirinya, memahami keadaan yang dihadapi."
+},
+  {
     judul: "Kajian Filsafat Uttamopadesa",
     url: "filsafat-uttamopadesa.html",
     gambar: "filsafat-uttamopadesa.jpg",
