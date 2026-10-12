@@ -1,4 +1,3 @@
-
 fetch("navigasi.html")
   .then(response => response.text())
   .then(html => {
