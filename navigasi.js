@@ -1,9 +1,13 @@
+/* Memuat menu navigasi */
 fetch("navigasi.html")
   .then(response => response.text())
   .then(html => {
-    document.getElementById("navigasi-container").innerHTML = html;
-  });
+    const nav = document.getElementById("navigasi-container");
+    if (nav) nav.innerHTML = html;
+  })
+  .catch(error => console.error("Gagal memuat navigasi:", error));
 
+/* Tombol berbagi otomatis */
 (function () {
   function buatTombolBerbagi() {
     if (document.querySelector(".tombol-share")) return;
@@ -17,19 +21,27 @@ fetch("navigasi.html")
     share.className = "tombol-share";
 
     share.innerHTML = `
-      <a href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=${u}"
+         target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
       </a>
-      <a href="https://twitter.com/intent/tweet?text=${t}" target="_blank" rel="noopener" aria-label="X">
+
+      <a href="https://twitter.com/intent/tweet?text=${t}"
+         target="_blank" rel="noopener noreferrer" aria-label="X">
         <img src="https://cdn.simpleicons.org/x/000000" alt="X">
       </a>
+
       <button type="button" class="share-instagram" aria-label="Instagram">
         <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram">
       </button>
-      <a href="https://api.whatsapp.com/send?text=${t}" target="_blank" rel="noopener" aria-label="WhatsApp">
+
+      <a href="https://api.whatsapp.com/send?text=${t}"
+         target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
       </a>
-      <a href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(judul)}" target="_blank" rel="noopener" aria-label="Telegram">
+
+      <a href="https://t.me/share/url?url=${u}&text=${encodeURIComponent(judul)}"
+         target="_blank" rel="noopener noreferrer" aria-label="Telegram">
         <img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram">
       </a>
     `;
@@ -37,38 +49,50 @@ fetch("navigasi.html")
     const style = document.createElement("style");
     style.textContent = `
       .tombol-share {
-        display:flex;
-        flex-wrap:nowrap;
-        align-items:center;
-        gap:12px;
-        margin:24px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        margin: 24px auto;
+        text-align: center;
+        box-sizing: border-box;
       }
+
       .tombol-share a,
       .tombol-share button {
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        width:34px;
-        height:34px;
-        padding:0;
-        border:0;
-        background:transparent;
-        cursor:pointer;
+        display: inline-flex;
+        flex: 0 0 34px;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
       }
+
       .tombol-share img {
-        display:block;
-        width:28px;
-        height:28px;
-        object-fit:contain;
+        display: block;
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
       }
     `;
+
     document.head.appendChild(style);
 
-    share.querySelector(".share-instagram").addEventListener("click", async () => {
+    share.querySelector(".share-instagram").addEventListener("click", async function () {
       if (navigator.share) {
         try {
-          await navigator.share({ title: judul, url: url });
-        } catch (e) {}
+          await navigator.share({
+            title: judul,
+            url: url
+          });
+        } catch (error) {}
       } else {
         window.open("https://www.instagram.com/", "_blank");
       }
