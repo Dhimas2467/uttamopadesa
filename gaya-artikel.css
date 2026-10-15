@@ -1,0 +1,14 @@
+
+body {
+  background: #d8bd8b url("kertas-kuno.jpg") center top / 100% auto repeat-y;
+  color: #28332d;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.8;
+}
+
+main {
+  background: rgba(255, 248, 229, 0.88);
+  border: 1px solid rgba(126, 91, 43, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 5px 22px rgba(75, 52, 25, 0.1);
+}
