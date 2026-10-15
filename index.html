@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,8 +9,15 @@
 <meta name="theme-color" content="#244b3c">
 <style>
 :root{--hijau:#244b3c;--krem:#f8f7f1;--kartu:#f0eee4;--teks:#354252;--emas:#b58b35;--sambut:#e7eee5;--sambut-teks:#244b3c}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.8;color:var(--teks);background:var(--krem)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.8;
+  color:var(--teks);
+  background:#d8bd8b url("kertas-kuno.jpg") center top / 100% auto repeat-y;
+}
 header{padding:22px 16px;text-align:center;color:white;background:var(--hijau)}
 .simbol-utama{display:block;width:min(55%,175px);height:auto;margin:0 auto 8px;object-fit:contain}
 header h1{margin:6px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(25px,5vw,36px);line-height:1.3;letter-spacing:1px}
@@ -21,8 +29,10 @@ nav a.tombol-beranda{flex:0 0 32px;width:32px;height:32px;padding:0}
 nav a.tombol-beranda svg{display:block;width:17px;height:17px;fill:none;stroke:white;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 main{width:100%;max-width:900px;margin:0 auto;padding:20px 20px 30px}
 h2{margin:0 0 14px;color:var(--hijau);font-family:Georgia,"Times New Roman",serif;font-size:clamp(23px,4.5vw,31px);line-height:1.35}
-p{margin:8px 0 14px}.pemisah{height:1px;margin:20px 0;border:0;background:#dedbd0}
-.halaman{display:none}.halaman.aktif{display:block}
+p{margin:8px 0 14px}
+.pemisah{height:1px;margin:20px 0;border:0;background:#dedbd0}
+.halaman{display:none}
+.halaman.aktif{display:block}
 .sambutan{background:var(--sambut);color:var(--sambut-teks);padding:16px 20px;border-left:4px solid var(--emas);border-radius:10px;margin-bottom:22px}
 .sambutan h2{font-size:clamp(21px,4vw,27px);margin:0 0 5px;color:var(--sambut-teks)}
 .sambutan p{font-size:15px;line-height:1.65;margin:0}
@@ -40,35 +50,69 @@ p{margin:8px 0 14px}.pemisah{height:1px;margin:20px 0;border:0;background:#dedbd
 .tautan-blog a{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--hijau);color:white;font-weight:bold;text-decoration:none}
 .tautan-blog a:hover{background:var(--emas)}
 
-@media(max-width:560px){.navigasi-artikel{gap:6px}.navigasi-artikel button{padding:9px 8px;font-size:11px}#nomor-halaman-artikel{font-size:11px}header{padding:18px 12px}.simbol-utama{width:min(55%,155px)}header p{font-size:15px}nav{gap:5px;padding:12px 5px}nav a{padding:7px 8px;font-size:11px}nav a.tombol-beranda{flex-basis:30px;width:30px;height:30px}main{padding:17px 17px 25px}.sambutan{padding:13px 15px;margin-bottom:18px}.sambutan p{font-size:14px;line-height:1.6}.kartu-artikel{flex-direction:column;align-items:stretch;gap:12px;padding:16px}.gambar-artikel{width:100%;height:145px;flex-basis:auto}.judul-artikel{font-size:20px}}
-@media(max-width:360px){nav{gap:4px;padding-left:4px;padding-right:4px}nav a{padding:7px 6px;font-size:10px}nav a.tombol-beranda{flex-basis:28px;width:28px;height:28px}}
+@media(max-width:560px){
+  .navigasi-artikel{gap:6px}
+  .navigasi-artikel button{padding:9px 8px;font-size:11px}
+  #nomor-halaman-artikel{font-size:11px}
+  header{padding:18px 12px}
+  .simbol-utama{width:min(55%,155px)}
+  header p{font-size:15px}
+  nav{gap:5px;padding:12px 5px}
+  nav a{padding:7px 8px;font-size:11px}
+  nav a.tombol-beranda{flex-basis:30px;width:30px;height:30px}
+  main{padding:17px 17px 25px}
+  .sambutan{padding:13px 15px;margin-bottom:18px}
+  .sambutan p{font-size:14px;line-height:1.6}
+  .kartu-artikel{flex-direction:column;align-items:stretch;gap:12px;padding:16px}
+  .gambar-artikel{width:100%;height:145px;flex-basis:auto}
+  .judul-artikel{font-size:20px}
+}
+@media(max-width:360px){
+  nav{gap:4px;padding-left:4px;padding-right:4px}
+  nav a{padding:7px 6px;font-size:10px}
+  nav a.tombol-beranda{flex-basis:28px;width:28px;height:28px}
+}
 </style>
 </head>
 <body>
+
 <header>
 <img src="simbol-uttamopadesa.png" alt="Simbol resmi Uttamopadesa" class="simbol-utama">
-<h1>UTTAMOPADESA</h1><p>Kawruh dan Laku Kehidupan</p>
+<h1>UTTAMOPADESA</h1>
+<p>Kawruh dan Laku Kehidupan</p>
 </header>
+
 <nav aria-label="Menu utama">
-<a href="#beranda" class="tombol-beranda" data-halaman="beranda" aria-label="Beranda" title="Beranda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5.5 9.5V21h13V9.5"></path><path d="M9.5 21v-7h5v7"></path></svg></a>
+<a href="#beranda" class="tombol-beranda" data-halaman="beranda" aria-label="Beranda" title="Beranda">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M3 10.5 12 3l9 7.5"></path>
+<path d="M5.5 9.5V21h13V9.5"></path>
+<path d="M9.5 21v-7h5v7"></path>
+</svg>
+</a>
 <a href="#identitas" data-halaman="identitas">Identitas</a>
 <a href="landasan.html">Landasan</a>
 <a href="#dokumentasi" data-halaman="dokumentasi">Dokumentasi</a>
 </nav>
+
 <main>
 <section id="beranda" class="halaman aktif">
 <div class="sambutan">
 <h2>Selamat Datang</h2>
 <p>Dokumentasi Kawruh Uttamopadesa tentang hakikat kehidupan dan penerapannya dalam laku sehari-hari.</p>
 </div>
-<hr class="pemisah"><h2>Artikel</h2>
+
+<hr class="pemisah">
+<h2>Artikel</h2>
 <div id="daftar-artikel" aria-live="polite"></div>
+
 <div id="navigasi-artikel" class="navigasi-artikel" aria-label="Navigasi halaman artikel">
 <button id="artikel-sebelumnya" type="button" disabled>← Artikel Sebelumnya</button>
 <span id="nomor-halaman-artikel">Halaman 1</span>
 <button id="artikel-berikutnya" type="button">Artikel Berikutnya →</button>
 </div>
 </section>
+
 <section id="identitas" class="halaman">
 <h2>Identitas Uttamopadesa</h2>
 <p>Kawruh Uttamopadesa dirumuskan oleh Dhimas Purnomo, SH sebagai penjabaran Kawruh Sejati dalam pemahaman dan laku kehidupan manusia.</p>
@@ -78,76 +122,161 @@ p{margin:8px 0 14px}.pemisah{height:1px;margin:20px 0;border:0;background:#dedbd
 <p>Kawruh Uttamopadesa juga tidak diarahkan untuk memperoleh kesaktian, kemampuan gaib, kekuatan supranatural, atau pengalaman luar biasa.</p>
 <p>Perhatian utamanya adalah pemahaman terhadap kehidupan dan pembentukan kualitas diri.</p>
 
-<p style="margin-top:20px;">
-  <a href="https://drive.google.com/file/d/1CydmVQWE6NjZptojji_geSlntjQT8Gwh/view?usp=drivesdk"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="display:inline-block;padding:10px 16px;background:#244b3c;color:white;text-decoration:none;border-radius:8px;font-weight:bold;">
-    📜 Konstitusi Filsafat Uttamopadesa
-  </a>
+<p style="margin-top:20px">
+<a href="https://drive.google.com/file/d/1CydmVQWE6NjZptojji_geSlntjQT8Gwh/view?usp=drivesdk"
+target="_blank" rel="noopener noreferrer"
+style="display:inline-block;padding:10px 16px;background:#244b3c;color:white;text-decoration:none;border-radius:8px;font-weight:bold">
+📜 Konstitusi Filsafat Uttamopadesa
+</a>
 </p>
-
 </section>
+
 <section id="landasan" class="halaman">
 <h2>Landasan Pemikiran</h2>
 <p>Kawruh Uttamopadesa berlandaskan pemahaman mengenai hakikat kehidupan, kesadaran diri, budi pekerti, dan tanggung jawab manusia dalam menjalani kehidupan.</p>
 <p>Pemahaman tidak berhenti pada pengetahuan, tetapi diwujudkan dalam laku nyata.</p>
 </section>
+
 <section id="dokumentasi" class="halaman">
-<h2>Dokumentasi</h2><p>Laman ini memuat dokumentasi dan tulisan mengenai Kawruh Uttamopadesa.</p>
+<h2>Dokumentasi</h2>
+<p>Laman ini memuat dokumentasi dan tulisan mengenai Kawruh Uttamopadesa.</p>
 <div id="daftar-dokumentasi"></div>
 </section>
 </main>
-<div class="tautan-blog"><a href="https://uttamopadesa.blogspot.com/" target="_blank" rel="noopener noreferrer">↗ Kunjungi Blog Uttamopadesa</a></div>
+
+<div class="tautan-blog">
+<a href="https://uttamopadesa.blogspot.com/" target="_blank" rel="noopener noreferrer">↗ Kunjungi Blog Uttamopadesa</a>
+</div>
 
 <script src="daftar-artikel.js"></script>
 <script>
 var artikelPerHalaman = 3;
 var halamanArtikel = 0;
 var semuaArtikel = Array.isArray(window.DAFTAR_ARTIKEL) ? window.DAFTAR_ARTIKEL : [];
+
 function buatKartuArtikel(artikel){
-  var kartu=document.createElement('article'); kartu.className='kartu-artikel';
-  var gambar=document.createElement('img'); gambar.src=artikel.gambar; gambar.alt=artikel.alt || artikel.judul; gambar.className='gambar-artikel';
+  var kartu=document.createElement('article');
+  kartu.className='kartu-artikel';
+
+  var gambar=document.createElement('img');
+  gambar.src=artikel.gambar;
+  gambar.alt=artikel.alt || artikel.judul;
+  gambar.className='gambar-artikel';
+
   var isi=document.createElement('div');
-  var judul=document.createElement('a'); judul.href=artikel.url; judul.className='judul-artikel'; judul.textContent=artikel.judul;
-  var ringkasan=document.createElement('p'); ringkasan.textContent=artikel.ringkasan;
-  var tautan=document.createElement('a'); tautan.href=artikel.url; tautan.className='tautan'; tautan.textContent='Baca selengkapnya →';
-  isi.append(judul,ringkasan,tautan); kartu.append(gambar,isi); return kartu;
+
+  var judul=document.createElement('a');
+  judul.href=artikel.url;
+  judul.className='judul-artikel';
+  judul.textContent=artikel.judul;
+
+  var ringkasan=document.createElement('p');
+  ringkasan.textContent=artikel.ringkasan;
+
+  var tautan=document.createElement('a');
+  tautan.href=artikel.url;
+  tautan.className='tautan';
+  tautan.textContent='Baca selengkapnya →';
+
+  isi.append(judul,ringkasan,tautan);
+  kartu.append(gambar,isi);
+  return kartu;
 }
+
 function tampilkanArtikel(){
-  var wadah=document.getElementById('daftar-artikel'); wadah.replaceChildren();
+  var wadah=document.getElementById('daftar-artikel');
+  wadah.replaceChildren();
+
   var mulai=halamanArtikel*artikelPerHalaman;
-  semuaArtikel.slice(mulai,mulai+artikelPerHalaman).forEach(function(artikel){wadah.appendChild(buatKartuArtikel(artikel))});
+  semuaArtikel.slice(mulai,mulai+artikelPerHalaman).forEach(function(artikel){
+    wadah.appendChild(buatKartuArtikel(artikel));
+  });
+
   var totalHalaman=Math.max(1,Math.ceil(semuaArtikel.length/artikelPerHalaman));
-  document.getElementById('nomor-halaman-artikel').textContent='Halaman '+(halamanArtikel+1)+' dari '+totalHalaman;
+
+  document.getElementById('nomor-halaman-artikel').textContent=
+    'Halaman '+(halamanArtikel+1)+' dari '+totalHalaman;
+
   document.getElementById('artikel-sebelumnya').disabled=halamanArtikel===0;
   document.getElementById('artikel-berikutnya').disabled=halamanArtikel>=totalHalaman-1;
 }
-document.getElementById('artikel-sebelumnya').addEventListener('click',function(){if(halamanArtikel>0){halamanArtikel--;tampilkanArtikel()}});
-document.getElementById('artikel-berikutnya').addEventListener('click',function(){if((halamanArtikel+1)*artikelPerHalaman<semuaArtikel.length){halamanArtikel++;tampilkanArtikel()}});
+
+document.getElementById('artikel-sebelumnya').addEventListener('click',function(){
+  if(halamanArtikel>0){
+    halamanArtikel--;
+    tampilkanArtikel();
+  }
+});
+
+document.getElementById('artikel-berikutnya').addEventListener('click',function(){
+  if((halamanArtikel+1)*artikelPerHalaman<semuaArtikel.length){
+    halamanArtikel++;
+    tampilkanArtikel();
+  }
+});
+
 var dokumentasi=document.getElementById('daftar-dokumentasi');
-semuaArtikel.forEach(function(artikel){var p=document.createElement('p');var a=document.createElement('a');a.href=artikel.url;a.className='tautan';a.textContent=artikel.judul+' →';p.appendChild(a);dokumentasi.appendChild(p)});
+
+semuaArtikel.forEach(function(artikel){
+  var p=document.createElement('p');
+  var a=document.createElement('a');
+  a.href=artikel.url;
+  a.className='tautan';
+  a.textContent=artikel.judul+' →';
+  p.appendChild(a);
+  dokumentasi.appendChild(p);
+});
+
 function tampilkanHalaman(nama){
-  document.querySelectorAll('.halaman').forEach(function(halaman){halaman.classList.remove('aktif')});
-  document.querySelectorAll('nav a[data-halaman]').forEach(function(menu){menu.classList.remove('terpilih')});
+  document.querySelectorAll('.halaman').forEach(function(halaman){
+    halaman.classList.remove('aktif');
+  });
+
+  document.querySelectorAll('nav a[data-halaman]').forEach(function(menu){
+    menu.classList.remove('terpilih');
+  });
+
   var halamanTujuan=document.getElementById(nama);
-  if(!halamanTujuan){nama='beranda';halamanTujuan=document.getElementById(nama)}
+
+  if(!halamanTujuan){
+    nama='beranda';
+    halamanTujuan=document.getElementById(nama);
+  }
+
   halamanTujuan.classList.add('aktif');
+
   var menuAktif=document.querySelector('nav a[data-halaman="'+nama+'"]');
-  if(menuAktif){menuAktif.classList.add('terpilih')}
+  if(menuAktif){
+    menuAktif.classList.add('terpilih');
+  }
+
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 document.querySelectorAll('nav a[data-halaman]').forEach(function(menu){
-  menu.addEventListener('click',function(event){event.preventDefault();var nama=menu.dataset.halaman;tampilkanHalaman(nama);history.replaceState(null,'','#'+nama)});
+  menu.addEventListener('click',function(event){
+    event.preventDefault();
+    var nama=menu.dataset.halaman;
+    tampilkanHalaman(nama);
+    history.replaceState(null,'','#'+nama);
+  });
 });
+
 window.addEventListener('load',function(){
   tampilkanArtikel();
+
   var nama=window.location.hash.replace('#','');
-  if(['beranda','identitas','landasan','dokumentasi'].includes(nama)){tampilkanHalaman(nama)}else{tampilkanHalaman('beranda')}
+
+  if(['beranda','identitas','landasan','dokumentasi'].includes(nama)){
+    tampilkanHalaman(nama);
+  }else{
+    tampilkanHalaman('beranda');
+  }
 });
 </script>
 
-  <div id="footer-container"></div>
+<div id="footer-container"></div>
 <script src="footer.js"></script>
+
 </body>
 </html>
