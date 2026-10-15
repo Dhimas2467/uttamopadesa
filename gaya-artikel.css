@@ -12,3 +12,32 @@ main {
   border-radius: 16px;
   box-shadow: 0 5px 22px rgba(75, 52, 25, 0.1);
 }
+
+
+/* Tombol Back to Top */
+#back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 9999;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #244c3b;
+  color: #fffdf5;
+  border: 1px solid #c6a76b;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+#back-to-top:hover {
+  background: #37664e;
+  opacity: 1;
+}
+
