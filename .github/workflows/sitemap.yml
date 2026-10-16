@@ -1,0 +1,66 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.sax.saxutils import escape
+
+          base = "https://dhimas2467.github.io/uttamopadesa"
+          root = Path(".")
+
+          pages = ["index.html"] + sorted(
+              p.name for p in root.glob("*.html")
+              if p.name != "index.html"
+              and p.name != "404.html"
+              and not p.name.startswith("google")
+          )
+
+          urls = []
+          for page in pages:
+              loc = base + "/" if page == "index.html" else f"{base}/{page}"
+              urls.append(
+                  f"  <url>\n"
+                  f"    <loc>{escape(loc)}</loc>\n"
+                  f"  </url>"
+              )
+
+          sitemap = (
+              '<?xml version="1.0" encoding="UTF-8"?>\n'
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+              + "\n".join(urls)
+              + "\n</urlset>\n"
+          )
+
+          Path("sitemap.xml").write_text(sitemap, encoding="utf-8")
+          PY
+
+      - name: Commit updated sitemap
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "Sitemap tidak berubah."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap automatically"
+          git push
