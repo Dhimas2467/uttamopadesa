@@ -1,9 +1,12 @@
+
 name: Generate Sitemap
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - sitemap.xml
   workflow_dispatch:
 
 permissions:
@@ -26,7 +29,6 @@ jobs:
           BASE_URL = "https://dhimas2467.github.io/uttamopadesa"
           ROOT = Path(".")
 
-          # Folder dan berkas yang tidak perlu masuk sitemap
           EXCLUDED_DIRS = {
               ".git",
               ".github",
@@ -39,7 +41,13 @@ jobs:
 
           urls = set()
 
-          for file in ROOT.rglob("*.html"):
+          for file in ROOT.rglob("*"):
+              if not file.is_file():
+                  continue
+
+              if file.suffix.lower() != ".html":
+                  continue
+
               relative = file.relative_to(ROOT)
 
               if any(part in EXCLUDED_DIRS for part in relative.parts):
@@ -51,7 +59,6 @@ jobs:
               if file.name.startswith("google"):
                   continue
 
-              # index.html pada root menjadi URL beranda
               if relative.as_posix() == "index.html":
                   url = BASE_URL + "/"
               else:
@@ -59,8 +66,38 @@ jobs:
 
               urls.add(url)
 
-          # Pastikan beranda tetap masuk
           urls.add(BASE_URL + "/")
 
           xml_urls = "\n".join(
-              f"  <url>\n    <loc>{escape(url)}</loc
+              f"  <url>\n    <loc>{escape(url)}</loc>\n  </url>"
+              for url in sorted(urls)
+          )
+
+          sitemap = (
+              '<?xml version="1.0" encoding="UTF-8"?>\n'
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+              f'{xml_urls}\n'
+              '</urlset>\n'
+          )
+
+          Path("sitemap.xml").write_text(
+              sitemap,
+              encoding="utf-8"
+          )
+
+          print(f"Sitemap berhasil dibuat: {len(urls)} URL")
+          PY
+
+      - name: Commit sitemap if changed
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "Sitemap tidak berubah."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add sitemap.xml
+          git commit -m "Update sitemap automatically"
+          git push
