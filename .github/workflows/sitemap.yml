@@ -23,44 +23,44 @@ jobs:
           from pathlib import Path
           from xml.sax.saxutils import escape
 
-          base = "https://dhimas2467.github.io/uttamopadesa"
-          root = Path(".")
+          BASE_URL = "https://dhimas2467.github.io/uttamopadesa"
+          ROOT = Path(".")
 
-          pages = ["index.html"] + sorted(
-              p.name for p in root.glob("*.html")
-              if p.name != "index.html"
-              and p.name != "404.html"
-              and not p.name.startswith("google")
-          )
+          # Folder dan berkas yang tidak perlu masuk sitemap
+          EXCLUDED_DIRS = {
+              ".git",
+              ".github",
+              "node_modules",
+          }
 
-          urls = []
-          for page in pages:
-              loc = base + "/" if page == "index.html" else f"{base}/{page}"
-              urls.append(
-                  f"  <url>\n"
-                  f"    <loc>{escape(loc)}</loc>\n"
-                  f"  </url>"
-              )
+          EXCLUDED_FILES = {
+              "404.html",
+          }
 
-          sitemap = (
-              '<?xml version="1.0" encoding="UTF-8"?>\n'
-              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-              + "\n".join(urls)
-              + "\n</urlset>\n"
-          )
+          urls = set()
 
-          Path("sitemap.xml").write_text(sitemap, encoding="utf-8")
-          PY
+          for file in ROOT.rglob("*.html"):
+              relative = file.relative_to(ROOT)
 
-      - name: Commit updated sitemap
-        run: |
-          if git diff --quiet -- sitemap.xml; then
-            echo "Sitemap tidak berubah."
-            exit 0
-          fi
+              if any(part in EXCLUDED_DIRS for part in relative.parts):
+                  continue
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git commit -m "Update sitemap automatically"
-          git push
+              if file.name in EXCLUDED_FILES:
+                  continue
+
+              if file.name.startswith("google"):
+                  continue
+
+              # index.html pada root menjadi URL beranda
+              if relative.as_posix() == "index.html":
+                  url = BASE_URL + "/"
+              else:
+                  url = BASE_URL + "/" + relative.as_posix()
+
+              urls.add(url)
+
+          # Pastikan beranda tetap masuk
+          urls.add(BASE_URL + "/")
+
+          xml_urls = "\n".join(
+              f"  <url>\n    <loc>{escape(url)}</loc
