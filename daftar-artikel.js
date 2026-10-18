@@ -1,5 +1,12 @@
 window.DAFTAR_ARTIKEL = [
 {
+judul: "Samadhi Sebagai Dasar dalam Kawruh Uttamopadesa",
+url: "samadhi-sebagai-dasar.html",
+gambar: "samadhi-sebagai-dasar.jpg",
+alt: "Ilustrasi Samadhi sebagai Dasar",
+ringkasan: "Samadhi dalam Uttamopadesa sebagai dasar kesadaran yang menerangi cipta, rasa, dan karsa serta mewujud dalam Lampah Utama."
+},
+{
 judul: "Nawa Sembah Uttamopadesa",
 url: "nawa-sembah-uttamopadesa.html",
 gambar: "nawa-sembah.jpg",
