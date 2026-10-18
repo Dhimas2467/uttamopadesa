@@ -1,6 +1,6 @@
 window.DAFTAR_ARTIKEL = [
 {
-judul: "Samadhi Sebagai Dasar Kesadarandalam Kawruh Uttamopadesa",
+judul: "Samadhi Sebagai Dasar Kesadaran dalam Kawruh Uttamopadesa",
 url: "samadhi-sebagai-dasar.html",
 gambar: "samadhi-sebagai-dasar.jpg",
 alt: "Ilustrasi Samadhi sebagai Dasar",
