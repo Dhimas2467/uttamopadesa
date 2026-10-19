@@ -1,5 +1,12 @@
 window.DAFTAR_ARTIKEL = [
 {
+judul: "Cara Mencapai Samadhi dalam Kawruh Uttamopadesa",
+url: "cara-mencapai-samadhi.html",
+gambar: "mencapai-samadhi.jpg",
+alt: "Ilustrasi Mencapai Samadhi",
+ringkasan: "Samadhi dalam Uttamopadesa: cara menata kesadaran melalui cipta, rasa, dan karsa menuju kejernihan batin dan Lampah Utama."
+},
+{
 judul: "Samadhi Sebagai Dasar Kesadaran dalam Kawruh Uttamopadesa",
 url: "samadhi-sebagai-dasar.html",
 gambar: "samadhi-sebagai-dasar.jpg",
