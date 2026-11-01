@@ -1,3 +1,4 @@
+
 name: Generate Sitemap
 
 on:
@@ -6,6 +7,7 @@ on:
       - main
     paths-ignore:
       - sitemap.xml
+      - .github/workflows/sitemap.yml
   workflow_dispatch:
 
 permissions:
@@ -26,16 +28,24 @@ jobs:
           from xml.sax.saxutils import escape
 
           BASE_URL = "https://dhimas2467.github.io/uttamopadesa"
+
           ROOT = Path(".")
 
           EXCLUDED_DIRS = {
               ".git",
               ".github",
               "node_modules",
+              "assets",
+              "css",
+              "js",
+              "images",
+              "img",
           }
 
           EXCLUDED_FILES = {
               "404.html",
+              "footer.html",
+              "navigasi.html",
           }
 
           urls = set()
@@ -48,14 +58,18 @@ jobs:
                   continue
 
               relative = file.relative_to(ROOT)
+              parts = relative.parts
 
-              if any(part in EXCLUDED_DIRS for part in relative.parts):
+              if any(part in EXCLUDED_DIRS for part in parts):
                   continue
 
-              if file.name in EXCLUDED_FILES:
+              if file.name.lower() in EXCLUDED_FILES:
                   continue
 
-              if file.name.startswith("google"):
+              if file.name.lower().startswith("google"):
+                  continue
+
+              if file.name.startswith("_"):
                   continue
 
               if relative.as_posix() == "index.html":
@@ -65,7 +79,8 @@ jobs:
 
               urls.add(url)
 
-          urls.add(BASE_URL + "/")
+          if not urls:
+              raise SystemExit("ERROR: Tidak ditemukan halaman HTML.")
 
           xml_urls = "\n".join(
               f"  <url>\n    <loc>{escape(url)}</loc>\n  </url>"
@@ -85,6 +100,26 @@ jobs:
           )
 
           print(f"Sitemap berhasil dibuat: {len(urls)} URL")
+          PY
+
+      - name: Validate sitemap XML
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+
+          tree = ET.parse("sitemap.xml")
+          root = tree.getroot()
+
+          namespace = {
+              "sm": "http://www.sitemaps.org/schemas/sitemap/0.9"
+          }
+
+          urls = root.findall("sm:url/sm:loc", namespace)
+
+          if not urls:
+              raise SystemExit("ERROR: Sitemap tidak memiliki URL.")
+
+          print(f"XML valid. Jumlah URL: {len(urls)}")
           PY
 
       - name: Commit sitemap if changed
