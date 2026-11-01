@@ -1,3 +1,4 @@
+
 name: Generate Sitemap
 
 on:
@@ -6,7 +7,6 @@ on:
       - main
     paths-ignore:
       - sitemap.xml
-      - .github/workflows/sitemap.yml
   workflow_dispatch:
 
 permissions:
@@ -24,6 +24,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          from urllib.parse import quote
           from xml.sax.saxutils import escape
 
           BASE_URL = "https://dhimas2467.github.io/uttamopadesa"
@@ -34,11 +35,6 @@ jobs:
               ".git",
               ".github",
               "node_modules",
-              "assets",
-              "css",
-              "js",
-              "images",
-              "img",
           }
 
           EXCLUDED_FILES = {
@@ -49,11 +45,8 @@ jobs:
 
           urls = set()
 
-          for file in ROOT.rglob("*"):
+          for file in ROOT.rglob("*.html"):
               if not file.is_file():
-                  continue
-
-              if file.suffix.lower() != ".html":
                   continue
 
               relative = file.relative_to(ROOT)
@@ -68,13 +61,15 @@ jobs:
               if file.name.lower().startswith("google"):
                   continue
 
-              if file.name.startswith("_"):
-                  continue
+              encoded_path = quote(
+                  relative.as_posix(),
+                  safe="/-._~"
+              )
 
               if relative.as_posix() == "index.html":
                   url = BASE_URL + "/"
               else:
-                  url = BASE_URL + "/" + relative.as_posix()
+                  url = BASE_URL + "/" + encoded_path
 
               urls.add(url)
 
@@ -98,10 +93,10 @@ jobs:
               encoding="utf-8"
           )
 
-          print(f"Sitemap berhasil dibuat: {len(urls)} URL")
+          print(f"Sitemap dibuat: {len(urls)} URL")
           PY
 
-      - name: Validate sitemap XML
+      - name: Validate sitemap.xml
         run: |
           python3 - <<'PY'
           import xml.etree.ElementTree as ET
@@ -116,9 +111,17 @@ jobs:
           urls = root.findall("sm:url/sm:loc", namespace)
 
           if not urls:
-              raise SystemExit("ERROR: Sitemap tidak memiliki URL.")
+              raise SystemExit("ERROR: Sitemap kosong.")
 
-          print(f"XML valid. Jumlah URL: {len(urls)}")
+          for item in urls:
+              if not item.text or not item.text.startswith(
+                  "https://dhimas2467.github.io/uttamopadesa/"
+              ):
+                  raise SystemExit(
+                      f"ERROR: URL tidak valid: {item.text}"
+                  )
+
+          print(f"Sitemap valid: {len(urls)} URL")
           PY
 
       - name: Commit sitemap if changed
