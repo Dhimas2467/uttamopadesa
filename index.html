@@ -15,7 +15,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 20px;
 }
 
 body {
@@ -57,11 +56,6 @@ nav a {
   font-size: 14px;
 }
 
-nav a:hover {
-  color: #c8dfc9;
-  text-decoration: underline;
-}
-
 main {
   max-width: 850px;
   margin: auto;
@@ -90,7 +84,6 @@ h2 {
   padding: 11px 18px;
   border-radius: 5px;
   margin-top: 8px;
-  transition: background 0.3s;
 }
 
 .button:hover {
@@ -117,32 +110,16 @@ h2 {
   justify-content: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   z-index: 9999;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  transition: all 0.3s ease;
+  transition: opacity 0.3s, background 0.3s, transform 0.3s;
 }
 
 #backToTop.show {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-}
-
-#backToTop:hover {
-  background: #35664d;
-  transform: translateY(-4px);
-}
-
-@media (max-width: 600px) {
-  #backToTop {
-    right: 16px;
-    bottom: 18px;
-    width: 44px;
-    height: 44px;
-  }
 }
 
 #backToTop:hover {
@@ -298,7 +275,7 @@ h2 {
 <div id="footer-container"></div>
 <script src="footer.js"></script>
 
-<!-- TOMBOL BACK TO TOP -->
+<!-- BACK TO TOP -->
 
 <button id="backToTop"
         title="Kembali ke atas"
@@ -310,14 +287,8 @@ h2 {
 (function() {
   const btn = document.getElementById("backToTop");
 
-  if (!btn) return;
-
   function checkScroll() {
-    if (window.scrollY > 200) {
-      btn.classList.add("show");
-    } else {
-      btn.classList.remove("show");
-    }
+    btn.classList.toggle("show", window.scrollY > 200);
   }
 
   window.addEventListener("scroll", checkScroll, {
