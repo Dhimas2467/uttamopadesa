@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 body {
@@ -56,6 +57,11 @@ nav a {
   font-size: 14px;
 }
 
+nav a:hover {
+  color: #c8dfc9;
+  text-decoration: underline;
+}
+
 main {
   max-width: 850px;
   margin: auto;
@@ -84,6 +90,7 @@ h2 {
   padding: 11px 18px;
   border-radius: 5px;
   margin-top: 8px;
+  transition: background 0.3s;
 }
 
 .button:hover {
@@ -105,21 +112,12 @@ h2 {
   font-size: 25px;
   font-weight: bold;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s, background 0.3s, transform 0.3s;
-}
-
-#backToTop.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
 }
 
 #backToTop:hover {
@@ -275,7 +273,7 @@ h2 {
 <div id="footer-container"></div>
 <script src="footer.js"></script>
 
-<!-- BACK TO TOP -->
+<!-- TOMBOL BACK TO TOP -->
 
 <button id="backToTop"
         title="Kembali ke atas"
@@ -284,26 +282,25 @@ h2 {
 </button>
 
 <script>
-(function() {
-  const btn = document.getElementById("backToTop");
+const backToTop = document.getElementById("backToTop");
 
-  function checkScroll() {
-    btn.classList.toggle("show", window.scrollY > 200);
-  }
+function toggleBackToTop() {
+  backToTop.style.display =
+    window.scrollY > 300 ? "flex" : "none";
+}
 
-  window.addEventListener("scroll", checkScroll, {
-    passive: true
+window.addEventListener("scroll", toggleBackToTop, {
+  passive: true
+});
+
+backToTop.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
+});
 
-  btn.addEventListener("click", function() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  checkScroll();
-})();
+toggleBackToTop();
 </script>
 
 </body>
