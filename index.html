@@ -1,163 +1,279 @@
-<!DOCTYPE html> <html lang="id">
- <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Uttamopadesa | Kawruh dan Laku Kehidupan</title> <meta name="description" content="Dokumentasi Kawruh Uttamopadesa, pemikiran tentang hakikat kehidupan, Kawruh Sejati, kesadaran, budi pekerti, dan laku kehidupan."> <style>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uttamopadesa | Kawruh dan Laku Kehidupan</title>
+
+<meta name="description" content="Dokumentasi Kawruh Uttamopadesa, pemikiran tentang hakikat kehidupan, Kawruh Sejati, kesadaran, budi pekerti, dan laku kehidupan.">
+
+<style>
 * {
- box-sizing: border-box;
- }
+  box-sizing: border-box;
+}
 
 body {
- margin: 0;
- font-family: Arial, sans-serif;
- line-height: 1.8;
- color: #303830;
- background: #f7f8f4;
- }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  color: #303830;
+  background: #f7f8f4;
+}
 
 header {
- background: #234b39;
- color: white;
- text-align: center;
- padding: 45px 20px;
- }
+  background: #234b39;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
 
 header h1 {
- font-size: 32px;
- margin: 0 0 10px;
- letter-spacing: 2px;
- }
+  font-size: 32px;
+  margin: 0 0 10px;
+  letter-spacing: 2px;
+}
 
 header p {
- margin: 0;
- font-size: 16px;
- }
+  margin: 0;
+  font-size: 16px;
+}
 
 nav {
- background: #183729;
- padding: 12px;
- text-align: center;
- }
+  background: #183729;
+  padding: 12px;
+  text-align: center;
+}
 
 nav a {
- color: white;
- text-decoration: none;
- margin: 0 10px;
- font-size: 14px;
- }
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
 
 main {
- max-width: 850px;
- margin: auto;
- padding: 20px;
- }
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+}
 
 section {
- background: white;
- padding: 24px;
- margin: 20px 0;
- border-radius: 8px;
- box-shadow: 0 2px 8px rgba(0,0,0,0.05);
- }
+  background: white;
+  padding: 24px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
 
 h2 {
- color: #234b39;
- border-bottom: 1px solid #dce5dc;
- padding-bottom: 8px;
- }
+  color: #234b39;
+  border-bottom: 1px solid #dce5dc;
+  padding-bottom: 8px;
+}
 
 .button {
- display: inline-block;
- background: #234b39;
- color: white;
- text-decoration: none;
- padding: 11px 18px;
- border-radius: 5px;
- margin-top: 8px;
- }
+  display: inline-block;
+  background: #234b39;
+  color: white;
+  text-decoration: none;
+  padding: 11px 18px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
 
 .button:hover {
- background: #35664d;
- }
+  background: #35664d;
+}
+
+/* TOMBOL KEMBALI KE ATAS */
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: #234b39;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  background: #35664d;
+}
 
 @media (max-width: 600px) {
- header h1 {
- font-size: 26px;
- }
+  header h1 {
+    font-size: 26px;
+  }
 
-nav a {
- display: inline-block;
- margin: 5px;
- }
+  nav a {
+    display: inline-block;
+    margin: 5px;
+  }
 
-section {
- padding: 18px;
- }
- }
- </style> </head> <body> <header>
- <h1>UTTAMOPADESA</h1>
- <p>Kawruh, Kesadaran, dan Laku Kehidupan</p>
- </header> <nav>
- <a href="#beranda">Beranda</a>
- <a href="#identitas">Identitas</a>
- <a href="landasan.html">Landasan</a>
- <a href="#dokumentasi">Dokumentasi</a>
- </nav> <main> <section id="beranda">
- <h2>Selamat Datang</h2> <p>
- Website ini merupakan ruang dokumentasi Kawruh Uttamopadesa,
- sebuah rumusan kawruh yang menguraikan pemahaman mengenai
- hakikat kehidupan, kesadaran, budi pekerti, dan laku manusia
- dalam menjalani kehidupan.
- </p> <p>
- Dokumentasi ini disusun untuk memperkenalkan identitas,
- landasan pemikiran, serta berbagai tulisan yang berkaitan
- dengan Kawruh Uttamopadesa.
- </p>
- </section> <section id="identitas">
- <h2>Tentang Uttamopadesa</h2> <p>
- Kawruh Uttamopadesa dirumuskan oleh Dhimas Purnomo sebagai
- penjabaran kawruh mengenai hakikat kehidupan dan tuntunan
- laku manusia dalam kehidupan sehari-hari.
- </p> <p>
- Kawruh Uttamopadesa menempatkan pemahaman, pembentukan
- budi pekerti, dan pelaksanaan laku kehidupan sebagai bagian
- yang saling berkaitan.
- </p> <p>
- Uraian di dalamnya diarahkan untuk membantu manusia
- memahami kehidupan dan mengembalikan kemurnian cipta,
- rasa, dan karsa.
- </p>
- </section> <section id="landasan">
- <h2>Landasan Pemikiran</h2> <p>
- Kawruh Uttamopadesa membahas hubungan manusia dengan
- Sang Sumber Panguripan, pemahaman mengenai Kawruh Sejati,
- kesadaran diri, serta penerapannya dalam laku kehidupan.
- </p> <p>
- Pemahaman tidak berhenti pada pengetahuan dan pemikiran,
- tetapi diarahkan untuk diwujudkan dalam sikap, perilaku,
- dan tanggung jawab manusia dalam menjalani kehidupan.
- </p>
- </section> <section id="dokumentasi">
- <h2>Dokumentasi dan Tulisan</h2> <p>
- Dokumentasi Kawruh Uttamopadesa mencakup uraian mengenai
- hakikat kehidupan, Kawruh Sejati, kesadaran, budi pekerti,
- serta berbagai tuntunan laku kehidupan.
- </p> <p>
- Tulisan lengkap dapat dibaca melalui blog utama
- Uttamopadesa.
- </p> <a class="button"
- href="https://uttamopadesa.blogspot.com/"
- target="_blank"
- rel="noopener noreferrer">
-Buka Blog Uttamopadesa
-</a>
+  section {
+    padding: 18px;
+  }
+}
+</style>
+</head>
 
-</section> <section>
- <h2>Tujuan Dokumentasi</h2> <p>
- Website ini dikembangkan sebagai salah satu tempat
- dokumentasi dan pengenalan Kawruh Uttamopadesa di internet.
- Isinya akan dilengkapi secara bertahap dengan tulisan,
- dokumen, dan rujukan yang berkaitan dengan kawruh ini.
- </p>
- </section> </main> <div id="footer-container"></div>
- <script src="footer.js"></script> </body>
- </html>
+<body>
+
+<header>
+  <h1>UTTAMOPADESA</h1>
+  <p>Kawruh, Kesadaran, dan Laku Kehidupan</p>
+</header>
+
+<nav>
+  <a href="#beranda">Beranda</a>
+  <a href="#identitas">Identitas</a>
+  <a href="landasan.html">Landasan</a>
+  <a href="#dokumentasi">Dokumentasi</a>
+</nav>
+
+<main>
+
+<section id="beranda">
+  <h2>Selamat Datang</h2>
+
+  <p>
+    Website ini merupakan ruang dokumentasi Kawruh Uttamopadesa,
+    sebuah rumusan kawruh yang menguraikan pemahaman mengenai
+    hakikat kehidupan, kesadaran, budi pekerti, dan laku manusia
+    dalam menjalani kehidupan.
+  </p>
+
+  <p>
+    Dokumentasi ini disusun untuk memperkenalkan identitas,
+    landasan pemikiran, serta berbagai tulisan yang berkaitan
+    dengan Kawruh Uttamopadesa.
+  </p>
+</section>
+
+<section id="identitas">
+  <h2>Tentang Uttamopadesa</h2>
+
+  <p>
+    Kawruh Uttamopadesa dirumuskan oleh Dhimas Purnomo sebagai
+    penjabaran kawruh mengenai hakikat kehidupan dan tuntunan
+    laku manusia dalam kehidupan sehari-hari.
+  </p>
+
+  <p>
+    Kawruh Uttamopadesa menempatkan pemahaman, pembentukan
+    budi pekerti, dan pelaksanaan laku kehidupan sebagai bagian
+    yang saling berkaitan.
+  </p>
+
+  <p>
+    Uraian di dalamnya diarahkan untuk membantu manusia
+    memahami kehidupan dan mengembalikan kemurnian cipta,
+    rasa, dan karsa.
+  </p>
+</section>
+
+<section id="landasan">
+  <h2>Landasan Pemikiran</h2>
+
+  <p>
+    Kawruh Uttamopadesa membahas hubungan manusia dengan
+    Sang Sumber Panguripan, pemahaman mengenai Kawruh Sejati,
+    kesadaran diri, serta penerapannya dalam laku kehidupan.
+  </p>
+
+  <p>
+    Pemahaman tidak berhenti pada pengetahuan dan pemikiran,
+    tetapi diarahkan untuk diwujudkan dalam sikap, perilaku,
+    dan tanggung jawab manusia dalam menjalani kehidupan.
+  </p>
+</section>
+
+<section id="dokumentasi">
+  <h2>Dokumentasi dan Tulisan</h2>
+
+  <p>
+    Dokumentasi Kawruh Uttamopadesa mencakup uraian mengenai
+    hakikat kehidupan, Kawruh Sejati, kesadaran, budi pekerti,
+    serta berbagai tuntunan laku kehidupan.
+  </p>
+
+  <p>
+    Tulisan lengkap dapat dibaca melalui blog utama
+    Uttamopadesa.
+  </p>
+
+  <a class="button"
+     href="https://uttamopadesa.blogspot.com/"
+     target="_blank"
+     rel="noopener noreferrer">
+    Buka Blog Uttamopadesa
+  </a>
+</section>
+
+<section>
+  <h2>Tujuan Dokumentasi</h2>
+
+  <p>
+    Website ini dikembangkan sebagai salah satu tempat
+    dokumentasi dan pengenalan Kawruh Uttamopadesa di internet.
+    Isinya akan dilengkapi secara bertahap dengan tulisan,
+    dokumen, dan rujukan yang berkaitan dengan kawruh ini.
+  </p>
+</section>
+
+</main>
+
+<div id="footer-container"></div>
+
+<!-- TOMBOL KEMBALI KE ATAS -->
+<button id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+  ↑
+</button>
+
+<script src="footer.js"></script>
+
+<script>
+(function () {
+  const backToTop = document.getElementById("backToTop");
+
+  function checkScroll() {
+    if (window.scrollY > 200) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll, { passive: true });
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  checkScroll();
+})();
+</script>
+
+</body>
+</html>
