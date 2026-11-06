@@ -1,5 +1,12 @@
 window.DAFTAR_ARTIKEL = [
 {
+judul: "Jatining Panguripan dan Hakikat Diri",
+url: "jatining-panguripan.html",
+gambar: "jatining-panguripan.jpg",
+alt: "Ilustrasi Jatining Panguripan",
+ringkasan: "Memahami Jatining Panguripan, hubungan jiwa dan raga, Cetana, serta hakikat diri dalam spiritualitas Kawruh Uttamopadesa."
+},
+{
 judul: "Cara Mencapai Samadhi dalam Kawruh Uttamopadesa",
 url: "cara-mencapai-samadhi.html",
 gambar: "mencapai-samadhi.jpg",
