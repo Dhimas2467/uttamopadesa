@@ -112,12 +112,37 @@ h2 {
   font-size: 25px;
   font-weight: bold;
   cursor: pointer;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  z-index: 999;
-  transition: background 0.3s, transform 0.3s;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  background: #35664d;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 600px) {
+  #backToTop {
+    right: 16px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 #backToTop:hover {
@@ -282,25 +307,32 @@ h2 {
 </button>
 
 <script>
-const backToTop = document.getElementById("backToTop");
+(function() {
+  const btn = document.getElementById("backToTop");
 
-function toggleBackToTop() {
-  backToTop.style.display =
-    window.scrollY > 300 ? "flex" : "none";
-}
+  if (!btn) return;
 
-window.addEventListener("scroll", toggleBackToTop, {
-  passive: true
-});
+  function checkScroll() {
+    if (window.scrollY > 200) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  }
 
-backToTop.addEventListener("click", function() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  window.addEventListener("scroll", checkScroll, {
+    passive: true
   });
-});
 
-toggleBackToTop();
+  btn.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  checkScroll();
+})();
 </script>
 
 </body>
