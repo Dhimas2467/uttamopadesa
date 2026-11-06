@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -52,6 +57,11 @@ nav a {
   font-size: 14px;
 }
 
+nav a:hover {
+  color: #c8dfc9;
+  text-decoration: underline;
+}
+
 main {
   max-width: 850px;
   margin: auto;
@@ -80,10 +90,44 @@ h2 {
   padding: 11px 18px;
   border-radius: 5px;
   margin-top: 8px;
+  transition: background 0.3s;
 }
 
 .button:hover {
   background: #35664d;
+}
+
+/* BACK TO TOP */
+
+#backToTop {
+  position: fixed;
+  right: 22px;
+  bottom: 25px;
+  width: 46px;
+  height: 46px;
+  background: #234b39;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#backToTop:hover {
+  background: #35664d;
+  transform: translateY(-4px);
+}
+
+#backToTop:focus-visible {
+  outline: 3px solid #8dbb9c;
+  outline-offset: 4px;
 }
 
 @media (max-width: 600px) {
@@ -98,6 +142,23 @@ h2 {
 
   section {
     padding: 18px;
+  }
+
+  #backToTop {
+    right: 16px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #backToTop {
+    transition: none;
   }
 }
 </style>
@@ -211,6 +272,36 @@ h2 {
 
 <div id="footer-container"></div>
 <script src="footer.js"></script>
+
+<!-- TOMBOL BACK TO TOP -->
+
+<button id="backToTop"
+        title="Kembali ke atas"
+        aria-label="Kembali ke atas">
+  ↑
+</button>
+
+<script>
+const backToTop = document.getElementById("backToTop");
+
+function toggleBackToTop() {
+  backToTop.style.display =
+    window.scrollY > 300 ? "flex" : "none";
+}
+
+window.addEventListener("scroll", toggleBackToTop, {
+  passive: true
+});
+
+backToTop.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+toggleBackToTop();
+</script>
 
 </body>
 </html>
